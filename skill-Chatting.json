@@ -1,0 +1,249 @@
+{
+  "intents": [
+    {
+      "intent": "Goodbye",
+      "examples": [
+        {
+          "text": "bye"
+        },
+        {
+          "text": "Goodbye"
+        },
+        {
+          "text": "nice too meet you"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thank you"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greeting",
+      "examples": [
+        {
+          "text": "Alsalamu Alykum"
+        },
+        {
+          "text": "Any one here?"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "Hi"
+        },
+        {
+          "text": "how are you"
+        },
+        {
+          "text": "I am here"
+        },
+        {
+          "text": "Welcome"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Questions",
+      "examples": [
+        {
+          "text": "Can you explain how I can use this site?"
+        },
+        {
+          "text": "Could you please tell me about this robot?"
+        },
+        {
+          "text": "Could you please tell me about this site?"
+        },
+        {
+          "text": "how can I benefit from using this site?"
+        },
+        {
+          "text": "What is the purpose of this site?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_5_1625141698186",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Goodbye",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Nice to meet you"
+              },
+              {
+                "text": "Bye"
+              },
+              {
+                "text": "Have a nice day"
+              },
+              {
+                "text": "Good bye dear"
+              },
+              {
+                "text": "At your service"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Goodbye",
+      "dialog_node": "node_5_1625141698186",
+      "previous_sibling": "node_6_1625137883921"
+    },
+    {
+      "type": "standard",
+      "title": "Greeting",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello mr/ms, how can I help you?"
+              },
+              {
+                "text": "Hello mr/ms, what do you want?"
+              },
+              {
+                "text": "Hello mr/ms, ask me"
+              },
+              {
+                "text": "Hi, how can I help you?"
+              },
+              {
+                "text": "Hi, how are you dear? how can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Greeting",
+      "dialog_node": "node_6_1625137337314",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Answers",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certainly! This website is designed to help the competitor to control the robot remotely. "
+              },
+              {
+                "text": "After the Corona pandemic, the robotics competitions stopped and we thought how we can maintain these competitions in light of this epidemic. Therefore, we designed this website to enable the competitor to control the robot remotely."
+              },
+              {
+                "text": "You can control your robot remotely by using this site."
+              },
+              {
+                "text": "When you click on the right button first, will saving the position on the database after that will open another PHP page contain the position you clicked. Finally, the robot will read the position from the site and will run."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#Questions",
+      "dialog_node": "node_6_1625137883921",
+      "previous_sibling": "node_6_1625137337314"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Chatting",
+  "language": "en",
+  "description": ""
+}
